@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous" 
+    /> -->
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <script th:src="@{/js/index.js}" src="../static/js/index.js" ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola mundo</title>
+  </head>
+  <body>
+    <div class="temporal-container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Spring Boot</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:ref="@{/}" href="#">Inicio<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Galería</a>
+            <a class="nav-item nav-link" href="#">Post</a>
+          </div>
+        </div>
+      </nav>
+      <div class="jumbotron">
+        <h1 class="display-4" onclick="saludar()" style="user-select: none;">Bienvenido a mi página web !</h1>
+        <p class="lead">Angel Ochoa, 27 años, Mexicano.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div th:each="post : ${posts}" class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img th:src="${post.uriImg}" class="card-img-top" src="../static/img/manzana.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 th:text="${post.titulo}" class="card-title">Card title</h5>
+                <p th:text="${post.descripcion}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col">
+          <div class="col-12" style="display: flex; flex-direction: column; align-items: center; margin-top: 10px;">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
